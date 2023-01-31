@@ -3,11 +3,11 @@ import { Observable } from 'rxjs';
 import { User, UserService } from 'src/app/services/api/user.service';
 
 @Component({
-  selector: 'app-trainer-page',
-  templateUrl: './trainer-page.component.html',
-  styleUrls: ['./trainer-page.component.css'],
+  selector: 'app-trainer.page',
+  templateUrl: './trainer.page.html',
+  styleUrls: ['./trainer.page.css'],
 })
-export class TrainerPageComponent implements OnInit {
+export class TrainerPage implements OnInit {
   constructor(private readonly userService: UserService) {}
 
   get user$(): Observable<User[]> {
