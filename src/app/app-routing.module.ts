@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CataloguePageComponent } from './pages/catalogue-page/catalogue-page.component';
-import { TrainerPageComponent } from './pages/trainer-page/trainer-page.component';
+import { CataloguePage } from './pages/catalogue-page/catalogue.page';
+import { LoginPage } from './pages/login/login.page';
+import { TrainerPage } from './pages/trainer-page/trainer.page';
 
 const routes: Routes = [
   {
+    path: '',
+    component: LoginPage,
+  },
+  {
     path: 'trainer',
-    component: TrainerPageComponent,
+    component: TrainerPage,
   },
   {
     path: 'catalogue',
-    component: CataloguePageComponent,
+    component: CataloguePage,
   },
 ];
 
