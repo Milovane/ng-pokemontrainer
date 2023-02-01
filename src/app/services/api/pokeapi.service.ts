@@ -24,6 +24,10 @@ export class PokeapiService {
     return this._pokemonCollection$.asObservable();
   }
 
+  get pokemonCollection(): PokemonBasic[] {
+    return this._pokemonCollection$.value;
+  }
+
   public fetchPokemonDetails(pokeName: string): void {
     this.http
       .get<PokemonDetails>(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
@@ -39,6 +43,10 @@ export class PokeapiService {
   }
 
   public fetchPokemons(start: number, limit: number): void {
+    if (this._pokemonCollection$.value.length > 0) {
+      return;
+    }
+
     this.http
       .get<PokemonResponse>(
         `https://pokeapi.co/api/v2/pokemon/?offset=${start}&limit=${limit}`

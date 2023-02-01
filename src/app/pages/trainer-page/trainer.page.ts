@@ -15,8 +15,12 @@ export class TrainerPage implements OnInit {
     private readonly pokeApiService: PokeapiService
   ) {}
 
-  pokemonImagePath(pokemon: PokemonBasic): string {
-    const id = pokemon.url.at(-2);
+  pokemonImagePath(pokemonName: string): string {
+    let pokeArr: PokemonBasic[] = this.pokeApiService.pokemonCollection;
+    const obj = pokeArr.find((x) => x.name === pokemonName);
+
+    let id;
+    if (obj !== undefined) id = obj.url.split('/').slice(-2)[0];
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
   }
 

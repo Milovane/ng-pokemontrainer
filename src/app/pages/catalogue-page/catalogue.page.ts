@@ -12,7 +12,8 @@ export class CataloguePage implements OnInit {
   constructor(private readonly pokeApiService: PokeapiService) {}
 
   pokemonImagePath(pokemon: PokemonBasic): string {
-    const id = pokemon.url.at(-2);
+    const id = pokemon.url.split('/').slice(-2)[0];
+
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
   }
 
@@ -21,6 +22,6 @@ export class CataloguePage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pokeApiService.fetchPokemons(0, 5);
+    this.pokeApiService.fetchPokemons(0, 30);
   }
 }
