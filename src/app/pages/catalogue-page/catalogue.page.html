@@ -1,1 +1,2 @@
 <p>catalogue-page works!</p>
+<div *ngFor="let pokemon of pokemonCollection$ | async">{{pokemon.name}}<img src="{{pokemonImagePath(pokemon)}}"/></div>
