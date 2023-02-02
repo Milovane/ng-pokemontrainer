@@ -9,9 +9,11 @@ import { LoginPage } from './pages/login/login.page';
 import { CataloguePage } from './pages/catalogue-page/catalogue.page';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
 
 @NgModule({
-  declarations: [AppComponent, TrainerPage, LoginPage, CataloguePage, LoginFormComponent],
+  declarations: [AppComponent, TrainerPage, LoginPage, CataloguePage, LoginFormComponent, PokemonListComponent, PokemonListItemComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,8 +1,12 @@
-<p>trainer-page works!</p>
+<!-- <p>trainer-page works!</p>
 <div *ngFor="let user of user$ | async">{{user.username}}<ul><li *ngFor="let pokemon of user.pokemon">{{pokemon}}<img src="{{pokemonImagePath(pokemon)}}"/></li></ul></div>
 <div *ngIf="pokemon$ | async as pokemon">
     {{pokemon.name}}
-  </div>
-  
+  </div> -->
 
-  
+<main class="container mx-auto p-4">
+  <p>trainer-page works!</p>
+  <div *ngIf="user">
+    <app-pokemon-list [pokemons]="userPokemons"></app-pokemon-list>
+  </div>
+</main>

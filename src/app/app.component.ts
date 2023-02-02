@@ -15,6 +15,7 @@ export class AppComponent {
   ) {}
 
   ngOnInit(): void {
+    this.userService.fetchUser();
     this.pokeApiService.fetchPokemons(0, 30);
   }
 }

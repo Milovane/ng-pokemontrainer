@@ -24,16 +24,44 @@ export class TrainerPage implements OnInit {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
   }
 
-  get user$(): Observable<User[]> {
+  get user$(): Observable<User> {
     return this.userService.user$;
+  }
+
+  get user(): User {
+    return this.userService.user;
+  }
+
+  get userPokemons(): PokemonBasic[] {
+    const userPokemonsString: String[] = this.user.pokemon;
+    const pokeArr: PokemonBasic[] = this.pokeApiService.pokemonCollection;
+    const userPokemonsObj: PokemonBasic[] = [];
+
+    for (let i = 0; i < userPokemonsString.length; i++) {
+      const obj = pokeArr.find((x) => x.name === userPokemonsString[i]);
+      if (obj !== undefined) {
+        const pokemon: PokemonBasic = {
+          name: obj.name,
+          imgUrl: obj.imgUrl,
+          url: obj.url,
+          id: obj.id,
+        };
+        userPokemonsObj.push(pokemon);
+      }
+    }
+
+    return userPokemonsObj;
   }
 
   get pokemon$(): Observable<PokemonDetails> {
     return this.pokeApiService.pokemon$;
   }
 
+  get loading(): boolean {
+    return this.pokeApiService.loading;
+  }
+
   ngOnInit(): void {
-    this.userService.fetchUser();
     this.pokeApiService.fetchPokemonDetails('charmeleon');
   }
 }

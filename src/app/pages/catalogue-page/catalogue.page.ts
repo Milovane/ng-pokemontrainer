@@ -11,17 +11,17 @@ import { PokeapiService } from 'src/app/services/api/pokeapi.service';
 export class CataloguePage implements OnInit {
   constructor(private readonly pokeApiService: PokeapiService) {}
 
-  pokemonImagePath(pokemon: PokemonBasic): string {
-    const id = pokemon.url.split('/').slice(-2)[0];
-
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
-  }
-
   get pokemonCollection$(): Observable<PokemonBasic[]> {
     return this.pokeApiService.pokemonCollection$;
   }
 
-  ngOnInit(): void {
-    this.pokeApiService.fetchPokemons(0, 30);
+  get pokemonCollection(): PokemonBasic[] {
+    return this.pokeApiService.pokemonCollection;
   }
+
+  get loading(): boolean {
+    return this.pokeApiService.loading;
+  }
+
+  ngOnInit(): void {}
 }

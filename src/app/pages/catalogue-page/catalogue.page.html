@@ -1,2 +1,6 @@
+<main class ="container mx-auto p-4">
 <p>catalogue-page works!</p>
-<div *ngFor="let pokemon of pokemonCollection$ | async">{{pokemon.name}}<img src="{{pokemonImagePath(pokemon)}}"/></div>
+<p *ngIf="loading">Loading pokemons...</p>
+<app-pokemon-list [pokemons]="pokemonCollection"></app-pokemon-list>
+<!-- <div *ngFor="let pokemon of pokemonCollection$ | async">{{pokemon.name}}</div> -->
+</main>
