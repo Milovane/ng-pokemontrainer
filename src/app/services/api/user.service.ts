@@ -42,3 +42,4 @@ export interface User {
   username: string;
   pokemon: [];
 }
+// The user is already getting exported 

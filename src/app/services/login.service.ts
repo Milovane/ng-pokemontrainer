@@ -19,8 +19,8 @@ export class LoginService {
           return this.createUser(username);
         }
         return of(user);
-      })
-    );
+      }),
+    )
   }
 
   private checkUsername(username: string): Observable<User | undefined> {
