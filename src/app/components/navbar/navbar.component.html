@@ -1,9 +1,12 @@
 <nav
-  class="bg-red-500 flex justify-between items-center p-4 sticky top-0 w-full"
+  class="bg-zinc-800 flex justify-between items-center p-6 
+   top-0 w-full"
 >
-  <span class="font-bold">Pokemon trainer</span>
+<img src="../../../assets/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-17015278258617bdog.png" 
+alt="Pokeball" width="50" height="50" class="flex">
+  <span class="font-bold text-white text-lg">Pokemon trainer</span>
   <ng-container *ngIf="user !== undefined">
-    <ul class="flex">
+    <ul class="flex text-white">
       <li class="px-4">
         <a routerLink="/trainer">Trainer</a>
       </li>
