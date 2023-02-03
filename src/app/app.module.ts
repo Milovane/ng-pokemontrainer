@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
 import { AddCollectionButtonComponent } from './components/add-collection-button/add-collection-button.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { PokemonGridItemComponent } from './components/pokemon-grid-item/pokemon-grid-item.component';
 import { PokemonGridComponent } from './components/pokemon-grid/pokemon-grid.component';
 
@@ -27,6 +28,7 @@ import { PokemonGridComponent } from './components/pokemon-grid/pokemon-grid.com
     AddCollectionButtonComponent,
     PokemonGridItemComponent,
     PokemonGridComponent,
+    NavbarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

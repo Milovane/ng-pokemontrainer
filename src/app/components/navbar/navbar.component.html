@@ -1,0 +1,18 @@
+<nav
+  class="bg-zinc-800 flex justify-between items-center p-6 
+   top-0 w-full"
+>
+<img src="../../../assets/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-17015278258617bdog.png" 
+alt="Pokeball" width="50" height="50" class="flex">
+  <span class="font-bold text-white text-lg">Pokemon trainer</span>
+  <ng-container *ngIf="user !== undefined">
+    <ul class="flex text-white">
+      <li class="px-4">
+        <a routerLink="/trainer">Trainer</a>
+      </li>
+      <li class="px-4">
+        <a routerLink="/catalogue">Catalogue</a>
+      </li>
+    </ul>
+  </ng-container>
+</nav>
