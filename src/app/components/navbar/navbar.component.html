@@ -4,9 +4,12 @@
 >
 <img src="../../../assets/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-17015278258617bdog.png" 
 alt="Pokeball" width="50" height="50" class="flex">
-  <span class="font-bold text-white text-lg">Pokemon trainer</span>
+  <span id="title" class="font-bold text-yellow-400 text-4xl">Pokémon trainer</span>
   <ng-container *ngIf="user !== undefined">
-    <ul class="flex text-white">
+    <ul id="routerButtons" class="flex text-yellow-400">
+      <li class="px-4">
+        <a routerLink="/login">Logout</a>
+      </li>
       <li class="px-4">
         <a routerLink="/trainer">Trainer</a>
       </li>
