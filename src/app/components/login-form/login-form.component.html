@@ -1,6 +1,7 @@
+<img src="../../../assets/Pokemon-Transparent-Images.png" style="margin-top: 20px; margin-bottom: 20px; width: 500px;">
 <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
-  <fieldset class="mb-3">
-    <label for="username" class="block">Username</label>
+  <fieldset class="mb-3  items-center align-middle justify-between">
+    <label id="username1" for="username" class="block text-yellow-400">Username:</label>
     <input
       type="text"
       ngModel
@@ -8,7 +9,7 @@
       name="username"
       id="username"
       class="border border-slate-900"
-      placeholder="JohnDoe"
+      placeholder="Ash Ketchum"
     />
     <button type="submit" class="bg-yellow-500 p-2 rounded">Login</button>
   </fieldset>

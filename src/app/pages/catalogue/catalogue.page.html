@@ -1,5 +1,5 @@
 <main class="container mx-auto p-4">
-  <div class="text-xl mb-5">Pokédex</div>
+  <div id="pokedex" class="font-bold text-yellow-400 text-center mb-3 text-4xl">Pokédex</div>
   <p *ngIf="loading">Loading pokemons...</p>
   <app-pokemon-grid [pokemons]="pokemons"></app-pokemon-grid>
   <!-- <div *ngFor="let pokemon of pokemonCollection$ | async">{{pokemon.name}}</div> -->
