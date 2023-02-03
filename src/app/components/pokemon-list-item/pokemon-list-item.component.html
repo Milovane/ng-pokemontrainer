@@ -1,4 +1,5 @@
-<li *ngIf="pokemon" class="mb-2 shadow bg-gradient-to-t from-slate-50 to-red-500 rounded relative w-52">
+<div id="pokemonBoxes" >
+<li *ngIf="pokemon" class="mb-2 shadow  rounded relative w-52">
   <app-add-collection-button
     [pokemonName]="pokemon.name"
   ></app-add-collection-button>
@@ -9,3 +10,4 @@
     <div class="text-xl">{{ pokemon.name }}</div>
   </section>
 </li>
+</div>

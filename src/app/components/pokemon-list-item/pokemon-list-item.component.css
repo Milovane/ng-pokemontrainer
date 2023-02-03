@@ -1,0 +1,4 @@
+#pokemonBoxes {
+    background: rgb(255,45,45);
+    background: linear-gradient(180deg, rgba(255,45,45,1) 0%, rgba(255,255,255,1) 65%);
+}
