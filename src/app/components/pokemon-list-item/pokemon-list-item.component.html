@@ -1,4 +1,7 @@
-<li *ngIf="pokemon" class="mb-2 shadow">
+<li *ngIf="pokemon" class="mb-2 shadow bg-slate-50 rounded relative">
+  <app-add-collection-button
+    [pokemonName]="pokemon.name"
+  ></app-add-collection-button>
   <section>
     <img src="{{ pokemon.imgUrl }}" [alt]="pokemon.name" class="block" />
   </section>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PokeapiService } from './services/api/pokeapi.service';
-import { UserService } from './services/api/user.service';
+import { PokeapiService } from './services/pokeapi.service';
+import { UserService } from './services/user.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,13 +9,9 @@ import { UserService } from './services/api/user.service';
 export class AppComponent {
   title = 'ng-pokemontrainer';
 
-  constructor(
-    private readonly userService: UserService,
-    private readonly pokeApiService: PokeapiService
-  ) {}
+  constructor(private readonly pokeApiService: PokeapiService) {}
 
   ngOnInit(): void {
-    this.userService.fetchUser();
-    this.pokeApiService.fetchPokemons(0, 30);
+    this.pokeApiService.fetchPokemons(0, 40);
   }
 }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PokeapiService } from 'src/app/services/api/pokeapi.service';
-import { User, UserService } from 'src/app/services/api/user.service';
+import { PokeapiService } from 'src/app/services/pokeapi.service';
+import { UserService } from 'src/app/services/user.service';
 import { PokemonBasic, PokemonDetails } from 'src/app/models/pokemon.model';
+import { User } from 'src/app/models/user.models';
 
 @Component({
   selector: 'app-trainer.page',
@@ -15,24 +16,15 @@ export class TrainerPage implements OnInit {
     private readonly pokeApiService: PokeapiService
   ) {}
 
-  pokemonImagePath(pokemonName: string): string {
-    let pokeArr: PokemonBasic[] = this.pokeApiService.pokemonCollection;
-    const obj = pokeArr.find((x) => x.name === pokemonName);
-
-    let id;
-    if (obj !== undefined) id = obj.url.split('/').slice(-2)[0];
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
-  }
-
-  get user$(): Observable<User> {
-    return this.userService.user$;
-  }
-
-  get user(): User {
+  get user(): User | undefined {
     return this.userService.user;
   }
 
   get userPokemons(): PokemonBasic[] {
+    if (this.user === undefined) {
+      return [];
+    }
+
     const userPokemonsString: String[] = this.user.pokemon;
     const pokeArr: PokemonBasic[] = this.pokeApiService.pokemonCollection;
     const userPokemonsObj: PokemonBasic[] = [];
@@ -62,6 +54,6 @@ export class TrainerPage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pokeApiService.fetchPokemonDetails('charmeleon');
+    //this.pokeApiService.fetchPokemonDetails('charmeleon');
   }
 }

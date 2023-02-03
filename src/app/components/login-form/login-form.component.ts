@@ -3,8 +3,7 @@ import { User } from 'src/app/models/user.models';
 import { LoginService } from 'src/app/services/login.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserServiceLoginTsService } from 'src/app/services/user.service.login.service';
-
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -17,7 +16,7 @@ export class LoginFormComponent {
   //This constructor uses userServiceLogin (Temporary service as to not ruin rest of code)
   constructor(
     private readonly loginService: LoginService,
-    private readonly userServiceLogin: UserServiceLoginTsService
+    private readonly userServiceLogin: UserService
   ) {}
 
   public loginSubmit(loginForm: NgForm): void {

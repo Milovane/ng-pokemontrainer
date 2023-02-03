@@ -7,7 +7,7 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserServiceLoginTsService } from '../services/user.service.login.service';
+import { UserService } from '../services/user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ import { UserServiceLoginTsService } from '../services/user.service.login.servic
 export class AuthGuard implements CanActivate {
   constructor(
     private readonly router: Router,
-    private readonly userServiceLogin: UserServiceLoginTsService
+    private readonly userServiceLogin: UserService
   ) {}
 
   canActivate(

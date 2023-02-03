@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PokemonBasic } from 'src/app/models/pokemon.model';
-import { PokeapiService } from 'src/app/services/api/pokeapi.service';
+import { PokeapiService } from 'src/app/services/pokeapi.service';
 
 @Component({
   selector: 'app-catalogue.page',
@@ -17,6 +17,10 @@ export class CataloguePage implements OnInit {
 
   get pokemonCollection(): PokemonBasic[] {
     return this.pokeApiService.pokemonCollection;
+  }
+
+  get pokemons(): PokemonBasic[] {
+    return this.pokeApiService.pokemons;
   }
 
   get loading(): boolean {
