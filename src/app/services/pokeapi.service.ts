@@ -4,6 +4,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { PokemonBasic, PokemonDetails } from 'src/app/models/pokemon.model';
 import { map, finalize } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { StorageUtil } from '../utils/storage.utils';
+import { StorageKeys } from '../enums/storage-keys.enum';
 
 const { apiPokemons, pokemonImgBaseUrl } = environment;
 
@@ -14,7 +16,15 @@ export class PokeapiService {
   private _pokemons: PokemonBasic[] = [];
   private _error: string = '';
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {
+    //this._pokemons =
+    //StorageUtil.storageRead<PokemonBasic[]>(StorageKeys.PokemonData) ?? [];
+  }
+
+  private set pokemons(pokemons: PokemonBasic[]) {
+    StorageUtil.storageSave<PokemonBasic[]>(StorageKeys.PokemonData, pokemons!);
+    this._pokemons = pokemons;
+  }
 
   private readonly _pokemon$: BehaviorSubject<PokemonDetails> =
     new BehaviorSubject<PokemonDetails>(null!);
@@ -71,7 +81,7 @@ export class PokeapiService {
   }
 
   public fetchPokemons(start: number, limit: number): void {
-    if (this._pokemonCollection$.value.length > 0) {
+    if (this._pokemons.length > 0 || this._loading) {
       return;
     }
     this._loading = true;
@@ -90,7 +100,7 @@ export class PokeapiService {
       )
       .subscribe({
         next: (pokemons: PokemonBasic[]) => {
-          this._pokemons = pokemons;
+          this.pokemons = pokemons;
           this._pokemonCollection$.next(pokemons);
         },
         error: (error: HttpErrorResponse) => {

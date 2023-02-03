@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PokeapiService } from './services/pokeapi.service';
 import { UserService } from './services/user.service';
 @Component({
@@ -6,12 +6,12 @@ import { UserService } from './services/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ng-pokemontrainer';
 
   constructor(private readonly pokeApiService: PokeapiService) {}
 
   ngOnInit(): void {
-    this.pokeApiService.fetchPokemons(0, 40);
+    this.pokeApiService.fetchPokemons(0, 905);
   }
 }
