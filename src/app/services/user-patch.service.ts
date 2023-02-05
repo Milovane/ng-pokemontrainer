@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { PokemonBasic } from 'src/app/models/pokemon.model';
 import { PokeapiService } from './pokeapi.service';
 import { finalize, Observable, tap } from 'rxjs';
 import { UserService } from './user.service';
@@ -31,7 +30,7 @@ export class UserPatchService {
     }
     const user: User = this.userService.user;
     const pokemon: string | undefined =
-      this.pokeapiService.pokemonByName(pokemonName)?.name;
+      this.pokeapiService.findPokemonByName(pokemonName)?.name;
     if (!pokemon) {
       throw new Error('addToCollection: No pokemon with name: ' + pokemonName);
     }

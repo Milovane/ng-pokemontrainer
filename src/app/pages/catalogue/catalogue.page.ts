@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 import { PokemonBasic } from 'src/app/models/pokemon.model';
 import { PokeapiService } from 'src/app/services/pokeapi.service';
 
@@ -8,16 +7,8 @@ import { PokeapiService } from 'src/app/services/pokeapi.service';
   templateUrl: './catalogue.page.html',
   styleUrls: ['./catalogue.page.css'],
 })
-export class CataloguePage implements OnInit {
+export class CataloguePage {
   constructor(private readonly pokeApiService: PokeapiService) {}
-
-  get pokemonCollection$(): Observable<PokemonBasic[]> {
-    return this.pokeApiService.pokemonCollection$;
-  }
-
-  get pokemonCollection(): PokemonBasic[] {
-    return this.pokeApiService.pokemonCollection;
-  }
 
   get pokemons(): PokemonBasic[] {
     return this.pokeApiService.pokemons;
@@ -26,6 +17,4 @@ export class CataloguePage implements OnInit {
   get loading(): boolean {
     return this.pokeApiService.loading;
   }
-
-  ngOnInit(): void {}
 }

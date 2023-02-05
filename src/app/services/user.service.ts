@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { StorageKeys } from '../enums/storage-keys.enum';
-import { PokemonBasic } from '../models/pokemon.model';
 import { User } from '../models/user.models';
 import { StorageUtil } from '../utils/storage.utils';
 
-// Code is based on video 6. Used to save user in session storage.
+// Used to save user in session storage.
 
 @Injectable({
   providedIn: 'root',

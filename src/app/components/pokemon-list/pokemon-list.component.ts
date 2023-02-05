@@ -7,5 +7,5 @@ import { PokemonBasic } from 'src/app/models/pokemon.model';
   styleUrls: ['./pokemon-list.component.css'],
 })
 export class PokemonListComponent {
-  @Input() pokemons: PokemonBasic[] = [];
+  @Input() pokemons?: PokemonBasic[] = [];
 }
