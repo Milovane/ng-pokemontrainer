@@ -1,12 +1,20 @@
 <nav
-  class="bg-zinc-800 flex justify-between items-center p-6 
-   top-0 w-full"
+  class="bg-zinc-800 flex items-center align-middle justify-between p-6 top-0 w-full"
 >
-<img src="../../../assets/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-17015278258617bdog.png" 
-alt="Pokeball" width="50" height="50" class="flex">
-  <span id="title" class="font-bold text-yellow-400 text-4xl">Pokémon trainer</span>
+  <div class="flex items-center">
+    <img
+      src="../../../assets/purepng.com-pokeballpokeballdevicepokemon-ballpokemon-capture-ball-17015278258617bdog.png"
+      alt="Pokeball"
+      width="50"
+      height="50"
+      class="flex"
+    />
+    <span id="title" class="font-bold text-yellow-400 text-4xl ml-4" 
+      >Pokémon trainer</span
+    >
+  </div>
   <ng-container *ngIf="user !== undefined">
-    <ul id="routerButtons" class="flex text-yellow-400">
+    <ul id="routerButtons" class="flex text-right text-yellow-400">
       <li class="px-4">
         <a routerLink="/login">Logout</a>
       </li>

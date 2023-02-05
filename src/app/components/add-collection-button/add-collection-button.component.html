@@ -1,16 +1,19 @@
 <aside class="absolute top-2 right-2">
   <button
     (click)="onAddClick()"
-    class=" rounded flex justified justify-center items-center p-2 text-black"
+    class="rounded flex justified justify-center items-center p-2 text-black"
   >
     <ng-container *ngIf="inOwnedPokemons; then owned; else notOwned">
     </ng-container>
-    <ng-template #owned
-      > <img src="../../../assets/1337481_go_gotcha_pokemon_game_play_icon.png" style="height: 50px; width: 50;">
-      </ng-template
-    >
+    <ng-template #owned>
+      <img
+        src="../../../assets/1337481_go_gotcha_pokemon_game_play_icon.png"
+        style="height: 50px; width: 50"
+    /></ng-template>
     <ng-template #notOwned
-      ><img src="../../../assets/1337537_game_go_play_pokeball_pokemon_icon.png" style="height: 50px; width: 50;"></ng-template
-    >
+      ><img
+        src="../../../assets/1337537_game_go_play_pokeball_pokemon_icon.png"
+        style="height: 50px; width: 50"
+    /></ng-template>
   </button>
 </aside>
