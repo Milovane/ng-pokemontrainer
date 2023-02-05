@@ -12,4 +12,7 @@ export class PokemonListItemComponent {
   capitalize(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
+  zeroPad(num: number): string {
+    return num.toString().padStart(4, '0');
+  }
 }

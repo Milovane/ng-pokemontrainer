@@ -10,12 +10,9 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./add-collection-button.component.css'],
 })
 export class AddCollectionButtonComponent {
+  public loading: boolean = false;
   public inOwnedPokemons: boolean = false;
   @Input() pokemonName: string = '';
-
-  get loading(): boolean {
-    return this.userPatchService.loading;
-  }
 
   constructor(
     private userService: UserService,
@@ -27,8 +24,10 @@ export class AddCollectionButtonComponent {
   }
 
   onAddClick(): void {
+    this.loading = true;
     this.userPatchService.addToCollection(this.pokemonName).subscribe({
       next: (user: User) => {
+        this.loading = false;
         this.inOwnedPokemons = this.userService.inOwnedPokemons(
           this.pokemonName
         );

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { PokeapiService } from './pokeapi.service';
-import { finalize, Observable, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { UserService } from './user.service';
 import { User } from '../models/user.models';
 
@@ -12,12 +12,6 @@ const { apiKey, apiUsers } = environment;
   providedIn: 'root',
 })
 export class UserPatchService {
-  private _loading: boolean = false;
-
-  get loading(): boolean {
-    return this._loading;
-  }
-
   constructor(
     private readonly http: HttpClient,
     private readonly userService: UserService,
@@ -46,7 +40,6 @@ export class UserPatchService {
       'x-api-key': apiKey,
     });
 
-    this._loading = true;
     return this.http
       .patch<User>(
         `${apiUsers}/${user.id}`,
@@ -58,9 +51,6 @@ export class UserPatchService {
       .pipe(
         tap((updatedUser: User) => {
           this.userService.user = updatedUser;
-        }),
-        finalize(() => {
-          this._loading = false;
         })
       );
   }
