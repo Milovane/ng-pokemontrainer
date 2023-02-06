@@ -3,6 +3,7 @@
   <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)" class="text-center">
     <fieldset class="mb-3">
       <label id="username1" for="username" class="block text-yellow-400">Username:</label>
+      <p *ngIf="isError" class="text-red-600">Not a valid Trainer name (No special characters!)</p>
       <input
         type="text"
         ngModel

@@ -13,6 +13,8 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginFormComponent {
   @Output() login: EventEmitter<void> = new EventEmitter();
 
+  isError: boolean = false;
+
   constructor(
     private readonly loginService: LoginService,
     private readonly userServiceLogin: UserService
@@ -20,13 +22,25 @@ export class LoginFormComponent {
 
   public loginSubmit(loginForm: NgForm): void {
     const { username } = loginForm.value;
-
-    this.loginService.login(username).subscribe({
-      next: (user: User) => {
-        this.userServiceLogin.user = user;
-        this.login.emit();
-      },
-      error: () => {},
-    });
+    var pattern = new RegExp('^[a-zA-Z0-9]*$');
+    if (username !== '') {
+      if (pattern.test(username)) {
+        this.loginService.login(username).subscribe({
+          next: (user: User) => {
+            this.userServiceLogin.user = user;
+            this.login.emit();
+          }, 
+          error: () => {
+            alert('Login failed');
+          },
+        });
+        
+      } else {
+        this.isError = true
+      }
+    } else {
+      this.isError = true;
+    }
   }
 }
+  
