@@ -1,5 +1,6 @@
 This project was made for educational purposes.
-Authors: Milovan Glisovic & Jetro Saarti
+
+# Authors: Milovan Glisovic & Jetro Saarti
 
 ## Pokémon trainer
 In this webapplication the user can look through a pokemon catalogue and catch Pokémon.
