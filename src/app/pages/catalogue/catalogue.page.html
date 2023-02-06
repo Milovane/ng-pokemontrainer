@@ -1,5 +1,5 @@
 <main class="container mx-auto p-4">
-  <div id="pokedex" class="font-bold text-yellow-400 text-center mb-3 text-4xl">Pokédex</div>
+  <div id="pokedex" class="font-bold text-yellow-400 text-center mb-3">Pokédex</div>
   <p id="description" class="text-yellow-400">Press the Pokéballs to catch Pokémons! <br> See caught Pokémons at trainer page...</p>
   <p *ngIf="loading">Loading pokemons...</p>
   <app-pokemon-grid [pokemons]="pokemons"></app-pokemon-grid>

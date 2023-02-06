@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
 
   //Logout function that clear session storage and updates page
   logout() {
-    sessionStorage.clear();
+    sessionStorage.removeItem("trainer");
     location.reload();
   }
 }

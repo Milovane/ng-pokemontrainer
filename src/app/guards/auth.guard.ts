@@ -12,6 +12,7 @@ import { UserService } from '../services/user.service';
 @Injectable({
   providedIn: 'root',
 })
+//Authguard, makes sure that user cant see catalogue and trainer page before being logged in
 export class AuthGuard implements CanActivate {
   constructor(
     private readonly router: Router,

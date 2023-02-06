@@ -3,3 +3,8 @@
     1px 1px #0515f3, -1px -1px #0515f3, 1px -1px #0515f3, -1px 1px #0515f3;
     font-family: 'Press Start 2P', cursive;
 }
+
+#routerButtons {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 70%;
+}

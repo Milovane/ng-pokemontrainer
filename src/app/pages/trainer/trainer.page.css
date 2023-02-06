@@ -1,5 +1,6 @@
 #inventory {
     font-family: 'Press Start 2P', cursive;
+    font-size: 190%;
     text-shadow: 2px 0 #0515f3, -2px 0 #0515f3, 0 2px #0515f3, 0 -2px #0515f3,
     1px 1px #0515f3, -1px -1px #0515f3, 1px -1px #0515f3, -1px 1px #0515f3;
 }
