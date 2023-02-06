@@ -12,7 +12,7 @@ const { apiPokemons, pokemonImgBaseUrl } = environment;
   providedIn: 'root',
 })
 export class PokeapiService {
-  private _pokemons: PokemonBasic[] = [];
+  private _pokemons: PokemonBasic[] = []; //all available pokemons from API
   private _error: string = '';
 
   constructor(private readonly http: HttpClient) {
@@ -35,12 +35,19 @@ export class PokeapiService {
     return this._loading;
   }
 
+  //Extract information from API response object
   private setProperties(pokemon: PokemonBasic) {
     pokemon.id = +pokemon.url.split('/').slice(-2)[0];
     pokemon.imgUrl = `${pokemonImgBaseUrl}/${pokemon.id}.png`;
     return pokemon;
   }
 
+  /**
+   * Fetch pokemon information from API. Runs only when the information is not available yet.
+   * @param start API param - start ID
+   * @param limit API param - max number of objects
+   * @returns Void, subscription-based function
+   */
   public fetchPokemons(start: number, limit: number): void {
     if (this._pokemons.length > 0 || this._loading) {
       return;
@@ -74,15 +81,12 @@ export class PokeapiService {
     }
   }
 
+  /**
+   * Find a pokemon object from the array of all available pokemons using the pokemon name as a key.
+   * @param name Pokemon name
+   * @returns Pokemon object
+   */
   public findPokemonByName(name: string): PokemonBasic | undefined {
     return this.pokemons.find((pokemon: PokemonBasic) => pokemon.name === name);
-  }
-
-  private getPokemonIdFromName(pokemonName: string): number {
-    const pokemon = this.pokemons.find((x) => x.name === pokemonName);
-
-    let id = 0;
-    if (pokemon !== undefined) id = +pokemon.url.split('/').slice(-2)[0];
-    return id;
   }
 }

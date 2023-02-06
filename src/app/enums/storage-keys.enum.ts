@@ -1,4 +1,4 @@
 export enum StorageKeys {
-  User = 'trainer',
-  PokemonData = 'pokemon-data',
+  User = 'trainer', //user object (login and inventory)
+  PokemonData = 'pokemon-data', //list of pokemon information, object array
 }

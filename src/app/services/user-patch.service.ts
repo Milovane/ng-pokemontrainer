@@ -11,6 +11,7 @@ const { apiKey, apiUsers } = environment;
 @Injectable({
   providedIn: 'root',
 })
+//Service for patching the user object in the API server and updating the application pokemon inventory
 export class UserPatchService {
   constructor(
     private readonly http: HttpClient,
@@ -29,6 +30,7 @@ export class UserPatchService {
       throw new Error('addToCollection: No pokemon with name: ' + pokemonName);
     }
 
+    //Toggle: Add to inventory or remove from inventory
     if (this.userService.inOwnedPokemons(pokemonName)) {
       this.userService.removeFromOwnedPokemons(pokemonName);
     } else {

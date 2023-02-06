@@ -9,13 +9,14 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './add-collection-button.component.html',
   styleUrls: ['./add-collection-button.component.css'],
 })
+//Button for adding a pokemon to user inventory or removing it from inventory
 export class AddCollectionButtonComponent {
-  public loading: boolean = false;
-  public inOwnedPokemons: boolean = false;
+  public loading: boolean = false; //true when the api communication is in progress
+  public inOwnedPokemons: boolean = false; //true when this pokemon is in the user's inventory
   @Input() pokemonName: string = '';
 
   constructor(
-    private userService: UserService,
+    private readonly userService: UserService,
     private readonly userPatchService: UserPatchService
   ) {}
 
@@ -23,6 +24,7 @@ export class AddCollectionButtonComponent {
     this.inOwnedPokemons = this.userService.inOwnedPokemons(this.pokemonName);
   }
 
+  //Add the target pokemon to the user's inventory or remove it from the inventory
   onAddClick(): void {
     this.loading = true;
     this.userPatchService.addToCollection(this.pokemonName).subscribe({
