@@ -25,6 +25,11 @@ const routes: Routes = [
     component: CataloguePage,
     canActivate: [AuthGuard],
   },
+  {
+    path:"**",
+    redirectTo: "/login",
+
+  }
 ];
 
 @NgModule({
