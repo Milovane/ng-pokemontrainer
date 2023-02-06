@@ -1,16 +1,18 @@
-<img src="../../../assets/Pokemon-Transparent-Images.png" style="margin-top: 20px; margin-bottom: 20px; width: 500px;">
-<form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
-  <fieldset class="mb-3  items-center align-middle justify-between">
-    <label id="username1" for="username" class="block text-yellow-400">Username:</label>
-    <input
-      type="text"
-      ngModel
-      #username="ngModel"
-      name="username"
-      id="username"
-      class="border border-slate-900"
-      placeholder="Ash Ketchum"
-    />
-    <button type="submit" class="bg-yellow-500 p-2 rounded">Login</button>
-  </fieldset>
-</form>
+<div class="container">
+  <img src="../../../assets/Pokemon-Transparent-Images.png" style="margin-bottom: 20px; width: 500px; display: block; margin-left: auto; margin-right: auto;">
+  <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)" class="text-center">
+    <fieldset class="mb-3">
+      <label id="username1" for="username" class="block text-yellow-400">Username:</label>
+      <input
+        type="text"
+        ngModel
+        #username="ngModel"
+        name="username"
+        id="username"
+        class="border border-slate-900"
+        placeholder=" Ash Ketchum"
+      />
+      <button type="submit" class="bg-yellow-500 p-2 rounded">Login</button>
+    </fieldset>
+  </form>
+</div>

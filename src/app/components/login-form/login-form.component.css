@@ -4,3 +4,15 @@
     font-family: 'Press Start 2P', cursive;
 
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+  }
+
+  input, button {
+    height: 40px;
+  }
