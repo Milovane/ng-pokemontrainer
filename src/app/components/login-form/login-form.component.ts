@@ -13,7 +13,6 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginFormComponent {
   @Output() login: EventEmitter<void> = new EventEmitter();
 
-  //This constructor uses userServiceLogin (Temporary service as to not ruin rest of code)
   constructor(
     private readonly loginService: LoginService,
     private readonly userServiceLogin: UserService
@@ -31,4 +30,3 @@ export class LoginFormComponent {
     });
   }
 }
-

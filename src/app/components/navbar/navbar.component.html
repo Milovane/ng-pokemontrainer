@@ -16,13 +16,13 @@
   <ng-container *ngIf="user !== undefined">
     <ul id="routerButtons" class="flex text-right text-yellow-400">
       <li class="px-4">
-        <a routerLink="/trainer">Trainer</a>
+        <button routerLink="/trainer">Trainer</button>
       </li>
       <li class="px-4">
-        <a routerLink="/catalogue">Catalogue</a>
+        <button routerLink="/catalogue">Catalogue</button>
       </li>
       <li class="px-4">
-        <a routerLink="/login">Logout</a>
+        <button (click)="logout()">Logout</button>
       </li>
     </ul>
   </ng-container>
